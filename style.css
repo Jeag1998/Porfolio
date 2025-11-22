@@ -1,0 +1,441 @@
+:root{
+    --blanco: white;
+    --blanco-2: rgba(255,255,255,.2);
+    --negro: black;
+    --negro-5: rgba(0,0,0,.5);
+    --negro-7: rgba(0,0,0, 0.7);
+    --tipo-titular:'Playfair Display', serif;
+    --tipo-principal:'Inter', sans-serif;
+}
+
+@media screen and (prefers-color-scheme: light){
+    :root{
+        --blanco: black;
+        --blanco-2: rgba(0,0,0,.2);
+        --negro-5: rgba(255,255,255,.5);
+        --negro-7: rgba(255,255,255, 0.7);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+img, figure {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    object-fit: cover;
+    object-position: center center;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: none;
+}
+
+form, button,
+input, textarea,
+select{
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+            hyphens: auto;
+    background-color: transparent;
+    display: flex;
+    color: inherit;
+}
+
+body{
+    font-family: var(--tipo-principal);
+    font-size: 100%;
+    min-height: 100vh;
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none;
+}
+
+.circulos{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: blur(40px);
+    animation: circulo1 20s linear infinite both;
+}
+.circulos .circulo{
+    position: absolute;
+    width: 55%;
+    height: 55%;
+    animation: circulo1 20s linear infinite both;
+}
+.circulos .circulo1{
+    top: 0%;
+    left: 0%;
+}
+.circulos .circulo1 .path{
+    fill:rgb(21, 221, 31);
+}
+.circulos .circulo2{
+    top: 0%;
+    right: 0%;
+}
+.circulos .circulo2 .path{
+    fill:rgb(171, 24, 230);
+}
+.circulos .circulo3{
+    bottom: 0%;
+    left: 0%;
+}
+.circulos .circulo3 .path{
+    fill:rgb(230, 183, 31);
+}
+.circulos .circulo4{
+    bottom: 0%;
+    right: 0%;
+}
+.circulos .circulo4 .path{
+    fill:rgb(25, 96, 211);
+}
+
+.header{
+    width: 100%;
+    min-height: 5em;
+
+    padding: 1em 2em;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    display: none;
+}
+.header .h1{
+}
+.header .ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.header .li{
+    margin: 0 1em;
+
+}
+
+.main{
+    margin: 0 0 1em;
+    position: relative;
+    z-index: 2;
+    background: var(--negro-7);
+}
+
+.seccion{
+    width: 100%;
+    min-height: 80vh;
+    padding: 2em;
+
+    display: flex;
+    flex-flow: column wrap;
+}
+.seccion .info{
+    font-size: 1.2em;
+    text-align: center;
+    animation: aparecer1 2s ease 1 both;
+}
+.seccion .ul{
+    list-style-type: none;
+    margin: 2em 0 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.seccion .ul .li{
+    list-style-type: none;
+    margin: 0 1em;
+}
+.seccion .ul .a{
+    
+    border: 1px solid var(--blanco-2);
+    border-radius: 50%;
+    padding: 1em 1em 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .5s ease;
+    animation: aparecer1 2s ease 1 backwards;
+}
+.seccion .ul>:nth-child(2) .a{
+    animation-delay: .2s;
+}
+.seccion .ul .a:hover{
+    border: white;
+}
+.seccion .h2{
+    font-family: var(--tipo-titular);
+    font-weight: 600;
+    font-size: 3em;
+    line-height: 1em;
+    color: var(--blanco);
+    mix-blend-mode: multiply;
+}
+.seccion .h3{
+    font-family: var(--tipo-titular);
+    font-size: 4em;
+}
+.seccion .p{}
+.seccion .grid{
+    width: 90%;
+    max-width: 40em;
+    margin: 1em 0;
+
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax( 15rem, 1fr));
+    gap: 1em;
+
+}
+.seccion .article{
+    width: 100%;
+    min-height: 20vh;
+    background: lightgoldenrodyellow;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+.seccion .figure{
+    width: 100%;
+}
+.seccion .img{
+    width: 100%;
+}
+.seccion .h4{
+    width: 100%;
+    height: 100%;
+    background-color: var(--negro-5);
+    backdrop-filter: blur(1rem);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--blanco);
+    font-size: 1.8em;
+    font-family: var(--tipo-titular);
+    font-style: italic;
+    opacity: 0;
+    transform: translateZ(1) scale(1.2);
+    transition: all .5s ease;
+}
+.seccion .article:hover h4{
+    opacity: 1;
+    transform: translateZ(1) scale(1);
+}
+
+.works .h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 1rem;
+    backdrop-filter: blur(6px);
+}
+
+.project-img {
+    flex: 1;
+}
+
+.project-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project-text {
+    flex: 1;
+}
+
+.project-text h3 {
+    font-family: var(--tipo-titular);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-text p {
+    opacity: .8;
+    line-height: 1.6;
+}
+
+/* Alternar izquierda / derecha en Desktop */
+.project-2 {
+    flex-direction: row-reverse;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px){
+    .project {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-2 {
+        flex-direction: column;
+    }
+}
+
+
+.about{}
+.about .h2{
+    text-align: center;
+    margin: 0 0 1rem;
+}
+.about .p{}
+.about .rrss{
+    width: 100%;
+    background: lightgreen;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.about .li{
+    background: orange;
+    margin: 0 1em;
+}
+
+.about-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.about-left{
+    flex: 1;
+}
+
+.about-right{
+    flex: 1;
+    background: rgba(255,255,255,.05);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+}
+
+.about-right h3{
+    font-family: var(--tipo-titular);
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.about-right p{
+    opacity: .8;
+}
+
+.about-right .graduado{
+    opacity: .5;
+    display: block;
+    margin-top: 1.5rem;
+    font-size: .9rem;
+}
+
+@media(max-width: 900px){
+    .about-container{
+        flex-direction: column;
+    }
+}
+
+.skills-icons{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.skills-icons i{
+    font-size: 4rem;  /* tamaño de iconos */
+    transition: transform .3s ease;
+}
+
+.skills-icons i:hover{
+    transform: scale(1.2);
+}
+
+.footer{
+    padding: 2em 0;
+    text-align: center;
+    color:var(--blanco);
+    position: relative;
+    z-index: 2;
+    background: var(--negro-7);
+}
+.footer .span{
+}
+
+@keyframes circulo1{
+    from{
+        transform:rotate(0deg) scale(2);
+    }
+    to{
+        transform:rotate(360deg) scale(2);
+    }
+}
+
+@keyframes aparecer1{
+    from{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+#cursor{
+    width: 3em;
+    height: 3em;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+}
+
+#cursor.mini{
+    transform: scale(0.7);
+    transition: all .1s linear;
+}
